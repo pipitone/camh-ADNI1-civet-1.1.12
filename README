@@ -11,5 +11,14 @@ cat 1.5T_ADNI1_standard.txt | sed 's/.mnc//g' | xargs -I{} cp -l input/{}_t1.mnc
 cat 3T_ADNI1_standard.txt | sed 's/.mnc//g' | xargs -I{} cp -l input/{}_t1.mnc input_3T/
 ```
 
-Then create CIVET jobs using `mkjobs.sh`. This creates `ADNI1.5.jobs` and
+Then create CIVET jobs using `mkjobs.sh`. This creates `ADNI1.5T.jobs` and
 `ADNI3T.jobs` with appropriate CIVET settings. 
+
+Load the necessary modules: `module load CIVET/1.1.12 Batch/pbs GNU_PARALLEL`
+
+And GO!!!
+
+```sh 
+pbs_batch --processes=24 ADNI1.5T.jobs 24 8:00:00
+pbs_batch --processes=24 ADNI3T.jobs  24 8:00:00
+```

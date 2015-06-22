@@ -1,0 +1,8 @@
+input/
+input_1.5T/
+input_3T/
+input_orig/
+output/
+output_1.5T/
+output_3T/
+.scripts/
